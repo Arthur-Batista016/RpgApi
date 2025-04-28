@@ -1,10 +1,20 @@
+using Microsoft.EntityFrameworkCore;
+using RpgApi.Data;
+
 var builder = WebApplication.CreateBuilder(args);
 
 // Add services to the container.
 // Learn more about configuring OpenAPI at https://aka.ms/aspnet/openapi
 builder.Services.AddOpenApi();
+builder.Services.AddControllers();
 
 var app = builder.Build();
+
+
+builder.Services.AddDbContext<DataContext>(options =>
+{
+   options.UseSqlServer(builder.Configuration.GetConnectionString("ConexaoLocal"));
+});
 
 // Configure the HTTP request pipeline.
 if (app.Environment.IsDevelopment())
@@ -33,6 +43,7 @@ app.MapGet("/weatherforecast", () =>
 })
 .WithName("GetWeatherForecast");
 
+app.MapControllers();
 app.Run();
 
 record WeatherForecast(DateOnly Date, int TemperatureC, string? Summary)
