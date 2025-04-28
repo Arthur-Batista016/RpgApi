@@ -1,0 +1,7 @@
+C:\Users\hr_ba\Downloads\RPG-API\RpgApi\obj\Debug\net9.0\RpgApi.csproj.AssemblyReference.cache
+C:\Users\hr_ba\Downloads\RPG-API\RpgApi\obj\Debug\net9.0\RpgApi.GeneratedMSBuildEditorConfig.editorconfig
+C:\Users\hr_ba\Downloads\RPG-API\RpgApi\obj\Debug\net9.0\RpgApi.AssemblyInfoInputs.cache
+C:\Users\hr_ba\Downloads\RPG-API\RpgApi\obj\Debug\net9.0\RpgApi.AssemblyInfo.cs
+C:\Users\hr_ba\Downloads\RPG-API\RpgApi\obj\Debug\net9.0\RpgApi.csproj.CoreCompileInputs.cache
+C:\Users\hr_ba\Downloads\RPG-API\RpgApi\obj\Debug\net9.0\RpgApi.MvcApplicationPartsAssemblyInfo.cs
+C:\Users\hr_ba\Downloads\RPG-API\RpgApi\obj\Debug\net9.0\RpgApi.MvcApplicationPartsAssemblyInfo.cache
