@@ -24,7 +24,7 @@ namespace RpgApi.Data
         public DbSet<Habilidade> TB_HABILIDADES { get; set; }
         public DbSet<PersonagemHabilidade> TB_PERSONAGENS_HABILIDADES { get; set; }
 
-        public DbSet<PersonagemHabilidade> TB_PERSONAGENS_DISPUTAS { get; set; }
+        public DbSet<Disputa> TB_DISPUTAS { get; set; }
 
         protected override void OnModelCreating(ModelBuilder modelBuilder)
         {
@@ -62,6 +62,8 @@ namespace RpgApi.Data
             user.Longitude = -46.596498;
             modelBuilder.Entity<Usuario>().HasData(user);
             //Fim da criação do usuário padrão.
+
+            
 
             modelBuilder.Entity<Personagem>().HasData
             (
