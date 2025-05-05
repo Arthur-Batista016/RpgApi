@@ -7,6 +7,7 @@ using Microsoft.EntityFrameworkCore;
 using RpgApi.Data;
 using RpgApi.Models;
 
+
 namespace RpgApi.Controllers
 {
     [ApiController]
