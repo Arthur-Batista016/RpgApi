@@ -3,8 +3,6 @@ using Microsoft.EntityFrameworkCore.Migrations;
 
 #nullable disable
 
-#pragma warning disable CA1814 // Prefer jagged arrays over multidimensional
-
 namespace RpgApi.Migrations
 {
     /// <inheritdoc />
@@ -13,15 +11,6 @@ namespace RpgApi.Migrations
         /// <inheritdoc />
         protected override void Up(MigrationBuilder migrationBuilder)
         {
-            migrationBuilder.AlterColumn<string>(
-                name: "Nome",
-                table: "TB_PERSONAGENS",
-                type: "Varchar(200)",
-                maxLength: 200,
-                nullable: false,
-                oldClrType: typeof(string),
-                oldType: "nvarchar(max)");
-
             migrationBuilder.AddColumn<byte[]>(
                 name: "FotoPersonagem",
                 table: "TB_PERSONAGENS",
@@ -33,20 +22,6 @@ namespace RpgApi.Migrations
                 table: "TB_PERSONAGENS",
                 type: "int",
                 nullable: true);
-
-            migrationBuilder.CreateTable(
-                name: "TB_ARMAS",
-                columns: table => new
-                {
-                    Id = table.Column<int>(type: "int", nullable: false)
-                        .Annotation("SqlServer:Identity", "1, 1"),
-                    Nome = table.Column<string>(type: "Varchar(200)", maxLength: 200, nullable: false),
-                    Dano = table.Column<int>(type: "int", nullable: false)
-                },
-                constraints: table =>
-                {
-                    table.PrimaryKey("PK_TB_ARMAS", x => x.Id);
-                });
 
             migrationBuilder.CreateTable(
                 name: "TB_USUARIOS",
@@ -67,20 +42,6 @@ namespace RpgApi.Migrations
                 constraints: table =>
                 {
                     table.PrimaryKey("PK_TB_USUARIOS", x => x.Id);
-                });
-
-            migrationBuilder.InsertData(
-                table: "TB_ARMAS",
-                columns: new[] { "Id", "Dano", "Nome" },
-                values: new object[,]
-                {
-                    { 1, 35, "Arco e Flecha" },
-                    { 2, 33, "Espada Longa" },
-                    { 3, 31, "Machado" },
-                    { 4, 30, "Punho" },
-                    { 5, 34, "Chicote" },
-                    { 6, 33, "Foice" },
-                    { 7, 32, "Cajado" }
                 });
 
             migrationBuilder.UpdateData(
@@ -135,7 +96,7 @@ namespace RpgApi.Migrations
             migrationBuilder.InsertData(
                 table: "TB_USUARIOS",
                 columns: new[] { "Id", "DataAcesso", "Email", "Foto", "Latitude", "Longitude", "PasswordHash", "PasswordSalt", "Perfil", "Username" },
-                values: new object[] { 1, null, "seuEmailegmail.com", null, -23.520024100000001, -46.596497999999997, new byte[] { 119, 138, 157, 84, 158, 193, 46, 48, 211, 91, 252, 21, 128, 161, 26, 56, 121, 249, 137, 130, 192, 97, 70, 14, 14, 149, 68, 93, 60, 184, 97, 48, 233, 221, 200, 77, 161, 76, 182, 161, 46, 176, 214, 10, 25, 46, 3, 50, 224, 184, 242, 61, 108, 200, 179, 88, 56, 113, 63, 164, 145, 131, 68, 217 }, new byte[] { 125, 212, 116, 104, 251, 68, 56, 45, 81, 22, 172, 24, 114, 244, 224, 195, 221, 148, 9, 68, 18, 153, 163, 124, 77, 168, 92, 237, 38, 62, 4, 139, 99, 123, 7, 66, 71, 155, 135, 135, 143, 5, 50, 98, 158, 121, 22, 240, 73, 1, 204, 175, 121, 254, 226, 87, 204, 232, 249, 235, 123, 190, 162, 127, 110, 188, 91, 221, 99, 226, 44, 55, 178, 215, 28, 136, 205, 165, 169, 59, 105, 165, 135, 195, 226, 212, 10, 174, 238, 114, 36, 233, 206, 184, 202, 197, 4, 53, 23, 247, 4, 135, 254, 131, 11, 26, 8, 155, 120, 167, 3, 3, 107, 181, 56, 225, 206, 209, 210, 205, 55, 147, 236, 86, 254, 226, 173, 68 }, "Admin", "UsuarioAdmin" });
+                values: new object[] { 1, null, "seuEmail@gmail.com", null, -23.520024100000001, -46.596497999999997, new byte[] { 125, 129, 148, 111, 161, 43, 137, 206, 242, 221, 170, 196, 229, 29, 64, 218, 125, 106, 101, 20, 124, 242, 78, 48, 38, 31, 255, 205, 247, 214, 209, 190, 37, 60, 140, 119, 165, 165, 134, 220, 59, 52, 200, 10, 184, 229, 252, 170, 11, 41, 104, 65, 134, 85, 249, 67, 27, 185, 95, 72, 240, 87, 192, 84 }, new byte[] { 109, 71, 225, 92, 113, 193, 224, 112, 26, 184, 211, 13, 92, 88, 135, 44, 122, 241, 187, 189, 171, 120, 91, 7, 90, 139, 242, 122, 88, 73, 159, 160, 130, 72, 196, 179, 240, 196, 105, 203, 202, 228, 149, 101, 85, 158, 114, 69, 254, 23, 201, 228, 192, 221, 224, 148, 198, 195, 191, 180, 151, 115, 249, 48, 176, 195, 85, 215, 103, 40, 162, 195, 0, 96, 86, 168, 208, 108, 80, 159, 42, 107, 12, 57, 138, 87, 16, 119, 151, 4, 196, 49, 55, 218, 176, 36, 81, 85, 141, 248, 196, 252, 114, 95, 211, 44, 71, 174, 64, 49, 82, 222, 192, 86, 218, 85, 45, 107, 229, 175, 171, 151, 119, 78, 41, 79, 27, 106 }, "Admin", "UsuarioAdmin" });
 
             migrationBuilder.CreateIndex(
                 name: "IX_TB_PERSONAGENS_UsuarioId",
@@ -158,9 +119,6 @@ namespace RpgApi.Migrations
                 table: "TB_PERSONAGENS");
 
             migrationBuilder.DropTable(
-                name: "TB_ARMAS");
-
-            migrationBuilder.DropTable(
                 name: "TB_USUARIOS");
 
             migrationBuilder.DropIndex(
@@ -174,15 +132,6 @@ namespace RpgApi.Migrations
             migrationBuilder.DropColumn(
                 name: "UsuarioId",
                 table: "TB_PERSONAGENS");
-
-            migrationBuilder.AlterColumn<string>(
-                name: "Nome",
-                table: "TB_PERSONAGENS",
-                type: "nvarchar(max)",
-                nullable: false,
-                oldClrType: typeof(string),
-                oldType: "Varchar(200)",
-                oldMaxLength: 200);
         }
     }
 }

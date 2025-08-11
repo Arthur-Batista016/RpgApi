@@ -1,8 +1,9 @@
 using System;
 using System.Collections.Generic;
-using System.ComponentModel.DataAnnotations.Schema;
 using System.Linq;
 using System.Threading.Tasks;
+using System.ComponentModel.DataAnnotations.Schema;
+
 
 namespace RpgApi.Models
 {
@@ -21,6 +22,6 @@ namespace RpgApi.Models
         public List<int>? ListaIdPersonagens { get; set; } 
 
         [NotMapped]
-        public List<string>? Resultados { get; set; }  
+        public List<string>? Resultados { get; set; } 
     }
 }

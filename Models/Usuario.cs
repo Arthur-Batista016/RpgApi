@@ -17,10 +17,17 @@ namespace RpgApi.Models
         public double? Longitude { get; set; }
         public DateTime? DataAcesso { get; set; }
 
-        [NotMapped]
+        [NotMapped]//DataAnnotations
         public string PasswordString { get; set; } = string.Empty;
-        public List<Personagem> Personagens { get; set; } = new List<Personagem>();
+
+        public List<Personagem> Personagens { get; set; }
+           = new List<Personagem>();
+
         public string? Perfil { get; set; }
         public string? Email { get; set; } = string.Empty;
+
+        [NotMapped]
+        public string Token { get; set; } = string.Empty;
+        
     }
 }
